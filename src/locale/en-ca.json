@@ -9,6 +9,14 @@
         "log" : "LOG",
         "alert" : "ALERT",
         "error" : "ERROR",
-        "startup" : "Starting $1"
+        "startup" : "Starting $1",
+        "loading" : "Loading $1",
+        "from" : "$1 from $2",
+        "assets" : {
+            "font" : "Loading Font: $1",
+            "sound" : "Loading Sound: $1",
+            "music" : "Loading Music: $1",
+            "sprite" : "Loading Sprite: $1"
+        }
     }
 }

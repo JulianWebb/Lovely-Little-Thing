@@ -24,3 +24,7 @@ Console = require 'modules.console'
 Debug = require 'modules.debug'
 Debug:init({}, 'f5')
 Console.log(l10n:getString('console.startup', { love.window.getTitle() }))
+
+--: Assets
+AssetManager = require 'assets.manager'
+AssetManager:init('assets')
