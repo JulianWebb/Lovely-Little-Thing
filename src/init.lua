@@ -28,3 +28,5 @@ Console.log(l10n:getString('console.startup', { love.window.getTitle() }))
 --: Assets
 AssetManager = require 'assets.manager'
 AssetManager:init('assets')
+
+Button = require 'objects.interface.button'
