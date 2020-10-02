@@ -8,6 +8,7 @@
         "message" : "[$1] $2",
         "log" : "LOG",
         "alert" : "ALERT",
-        "error" : "ERROR"
+        "error" : "ERROR",
+        "startup" : "Starting $1"
     }
 }

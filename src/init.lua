@@ -23,4 +23,4 @@ Console = require 'modules.console'
 --: Debug
 Debug = require 'modules.debug'
 Debug:init({}, 'f5')
-Console.log("Starting " .. love.window.getTitle())
+Console.log(l10n:getString('console.startup', { love.window.getTitle() }))
