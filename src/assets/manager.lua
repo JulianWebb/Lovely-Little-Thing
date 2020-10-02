@@ -4,7 +4,6 @@ function assetManager:init(location)
     self.location = Util.fallback(location, 'assets')
     Console.log(l10n:getString('console.from', { l10n:getString('console.loading', { 'Assets' }), self.location .. '/'}))
 
-
     self.fonts   = self:loadAssets(self.location .. '/fonts', 'font', self.addFont)
     self.sounds  = self:loadAssets(self.location .. '/sounds', 'sound', self.addSound)
     self.music   = self:loadAssets(self.location .. '/music', 'music', self.addMusic)
@@ -19,7 +18,7 @@ function assetManager:loadAssets(location, type, func)
         Console.log(l10n:getString('console.assets.' .. type, { value }))
         local name = string.match(value, "[^$.]+")
         local path = location .. '/' .. value
-        list[name] = func(path)
+        list[name] = func(self, path)
     end
 
     return list
