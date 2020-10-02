@@ -1,0 +1,13 @@
+{
+    "startup" : {
+        "assets" : "Loading Assets",
+        "objects" : "Loading Objects",
+        "testMessage" : "Test Message"
+    },
+    "console" : {
+        "message" : "[$1] $2",
+        "log" : "LOG",
+        "alert" : "ALERT",
+        "error" : "ERROR"
+    }
+}
