@@ -15,7 +15,7 @@ hex = require 'libs.hexmaniac'
 --: Util doesn't use anything outside itself
 Util = require 'modules.util'
 --: Localization uses Util and enums
-l10n = require 'modules.locale'
+l10n = require 'modules.localization'
 l10n:init('en-ca') -- At some point this will get pulled from a config file
 --: Console uses Localization and Util
 Console = require 'modules.console'
