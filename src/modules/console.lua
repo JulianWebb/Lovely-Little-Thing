@@ -48,8 +48,8 @@ end
 -- @param string Indent string (optional, default: '    ')
 -- @return string Table substring, only used for recursion
 function Console.table(object, level, indentString)
-    local level = Util.fallback(level, 0)
-    local indentString = Util.fallback(indentString, "\32\32\32\32")
+    level = Util.fallback(level, 0)
+    indentString = Util.fallback(indentString, "\32\32\32\32")
 
     if type(object) == 'table' then
         local objString = "{\n"
@@ -58,7 +58,7 @@ function Console.table(object, level, indentString)
             key = '[' .. key .. ']'
             if type(value) == "string" then value = '"' .. value .. '"' end
             objString = objString .. indent(level + 1, indentString) .. key .. " = " .. Console.table(value, level + 1)
-            
+
             if type(value) ~= "table" then
                 objString = objString .. ",\n"
             end
