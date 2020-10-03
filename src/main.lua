@@ -3,7 +3,7 @@ require 'init'
 local bgColor = hex.rgb("5500AA")
 local mouseCoords = Debug:addMessage('Mouse Coords: 0, 0')
 
-local testButton = Button(nil, {
+local testButton = ObjectManager.objects.interface.button(nil, {
     color = {
         active = {
             fill = hex.rgb('0000AA'),
@@ -11,7 +11,7 @@ local testButton = Button(nil, {
         }
     },
     font = AssetManager.fonts['RubberNippleFactory'],
-    borderRadius = 2
+    borderRadius = 0
 },{
     sounds = {
         [e.ButtonState.pressed] = nil

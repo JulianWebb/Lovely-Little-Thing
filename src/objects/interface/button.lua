@@ -54,7 +54,7 @@ function Button:new(parent, style, options)
 
     self.stat = e.ButtonState.normal
     self.pressedCount = 0
-    self.debug = Debug:addMessage()
+    self.debug = Debug:addMessage("Button pressed " .. self.pressedCount .. " times.")
 end
 
 function Button:update(dt)
