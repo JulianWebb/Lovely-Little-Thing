@@ -6,7 +6,7 @@ function objectManager:init(location)
     for _, value in ipairs(directoryItems) do
         local fullPath = location .. '/' .. value
         local potentialDir = love.filesystem.getInfo(fullPath)
-        if potentialDir.type == e.FileType.directory then
+        if potentialDir.type == enums.FileType.directory then
             self.objects[value] = self:scanDir(fullPath)
         end
     end
@@ -18,9 +18,9 @@ function objectManager:scanDir(location)
     for _, value in ipairs(directoryItems) do
         local fullPath = location .. '/' .. value
         local itemInfo = love.filesystem.getInfo(fullPath)
-        if itemInfo.type == e.FileType.directory then
+        if itemInfo.type == enums.FileType.directory then
             tree[value] = self:scanDir(fullPath)
-        elseif itemInfo.type == e.FileType.file then
+        elseif itemInfo.type == enums.FileType.file then
             if string.find(value, '.lua') then
                 local requireString = string.gsub(string.gsub(fullPath, '.lua', ''), '/', '.')
                 Console.log(requireString)

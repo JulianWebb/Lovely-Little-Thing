@@ -47,7 +47,7 @@ function event:after(fn, delay)
   local e = event.new(self.parent, fn, delay, false)
   self.fn = function()
     oldfn()
-    e.timer = e.timer + self.parent.err
+    enums.timer = enums.timer + self.parent.err
     self.parent:add(e)
   end
   return e
@@ -94,16 +94,16 @@ end
 function tick:update(dt)
   for i = #self, 1, -1 do
     local e = self[i]
-    e.timer = e.timer - dt
-    while e.timer <= 0 do
-      if e.recur then
-        e.timer = e.timer + e.delay
+    enums.timer = enums.timer - dt
+    while enums.timer <= 0 do
+      if enums.recur then
+        enums.timer = enums.timer + enums.delay
       else
         self:remove(i) 
       end
-      self.err = e.timer
-      e.fn()
-      if not e.recur then
+      self.err = enums.timer
+      enums.fn()
+      if not enums.recur then
         break
       end
     end

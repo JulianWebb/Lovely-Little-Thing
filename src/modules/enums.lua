@@ -1,26 +1,31 @@
 local module = {}
 
-module.DrawMode = {
+module.DrawMode = builtins.enum({
     fill = "fill",
     line = "line"
-}
-module.Mouse = {
+}, "DrawMode")
+
+print(module.DrawMode)
+module.Mouse = builtins.enum({
     primary = 1,
     secondary = 2,
     middle = 3
-}
-module.FileType = {
+}, "Mouse")
+
+module.FileType = builtins.enum({
     file = "file",
     directory = "directory",
     dir = "directory",
     symlink = "symlink",
     other = "other"
-}
-module.ContainerType = {
+}, "FileType")
+
+module.ContainerType = builtins.enum({
     data = "data",
     string = "string"
-}
-module.FileMode = {
+}, "ContainerType")
+
+module.FileMode = builtins.enum({
     r = "r",
     read = "r",
     w = "w",
@@ -29,19 +34,20 @@ module.FileMode = {
     append = "a",
     c = "c",
     closed = "c"
-}
-module.SourceType = {
+}, "FileMode")
+
+module.SourceType = builtins.enum({
     static = "static",
     stream = "stream",
     queue  = "queue"
-}
+}, "SourceType")
 
 -- Homemade enums
-module.ButtonState = {
+module.ButtonState = builtins.enum({
     normal      = 0,
     under       = 1,
     pressed     = 2,
     released    = 3
-}
+}, "ButtonState")
 
 return module

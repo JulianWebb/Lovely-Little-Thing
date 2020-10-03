@@ -11,7 +11,7 @@ function localization:init(locale)
     local filePath = "locale/" .. self.locale .. ".json"
     print("[LOG] Looking for locale file at " .. filePath)
     local localeFile = love.filesystem.newFile(filePath)
-    local ok, err = localeFile:open(e.FileMode.read)
+    local ok, err = localeFile:open(enums.FileMode.read)
     if ok then
         print("[LOG] File Object Opened for " .. self.locale)
         local contents, size = localeFile:read()

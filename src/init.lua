@@ -4,7 +4,10 @@ Socket = require 'socket'
 math.randomseed(Socket.gettime()*1000)
 
 --: Enums
-e = require 'modules.enums'
+builtins = {
+    enum = require "builtins.enum"
+}
+enums = require 'modules.enums'
 
 --: Libraries
 tick = require 'libs.tick'

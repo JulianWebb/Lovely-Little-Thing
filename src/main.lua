@@ -14,7 +14,7 @@ local testButton = ObjectManager.objects.interface.button(nil, {
     borderRadius = 0
 },{
     sounds = {
-        [e.ButtonState.pressed] = nil
+        [enums.ButtonState.pressed] = nil
     },
     text = "hello world"
 })

@@ -30,12 +30,12 @@ function assetManager:addFont(path)
 end
 
 function assetManager:addSound(path)
-    local sound = love.audio.newSource(path, e.SourceType.static)
+    local sound = love.audio.newSource(path, enums.SourceType.static)
     return sound
 end
 
 function assetManager:addMusic(path)
-    local music = love.audio.newSource(path, e.SourceType.stream)
+    local music = love.audio.newSource(path, enums.SourceType.stream)
     return music
 end
 

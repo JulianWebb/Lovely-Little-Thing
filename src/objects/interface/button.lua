@@ -31,8 +31,8 @@ function Button:new(parent, style, options)
     self.style.color.current = self.style.color.normal
 
     self.sounds = Util.mergeTables({
-        [e.ButtonState.pressed] = nil,
-        [e.ButtonState.released] = nil
+        [enums.ButtonState.pressed] = nil,
+        [enums.ButtonState.released] = nil
     }, options.sounds)
 
     local textString = Util.fallback(options.text, l10n:getString("game.missingString"))
@@ -52,41 +52,41 @@ function Button:new(parent, style, options)
         self.mask.bottom = self.mask.centre.y + (self.mask.height / 2)
     end
 
-    self.stat = e.ButtonState.normal
+    self.stat = enums.ButtonState.normal
     self.pressedCount = 0
     self.debug = Debug:addMessage("Button pressed " .. self.pressedCount .. " times.")
 end
 
 function Button:update(dt)
     if Util.pointInBox(love.mouse.getX(), love.mouse.getY(), self.mask.left, self.mask.right, self.mask.top, self.mask.bottom) then
-        if love.mouse.isDown(e.Mouse.primary) then
-            if self.state ~= e.ButtonState.pressed then
-                if (self.sounds[e.ButtonState.pressed] ~= nil) then
-                    self.sounds[e.ButtonState.pressed]:play()
+        if love.mouse.isDown(enums.Mouse.primary) then
+            if self.state ~= enums.ButtonState.pressed then
+                if (self.sounds[enums.ButtonState.pressed] ~= nil) then
+                    self.sounds[enums.ButtonState.pressed]:play()
                 end
-                self.state = e.ButtonState.pressed
+                self.state = enums.ButtonState.pressed
                 self.pressedCount = self.pressedCount + 1
                 Debug:updateMessage(self.debug, "Button pressed " .. self.pressedCount .. " times.")
             end
             self.style.color.current = self.style.color.active
         else
             self.style.color.current = self.style.color.hover
-            self.state = e.ButtonState.under
+            self.state = enums.ButtonState.under
         end
     else
         self.style.color.current = self.style.color.normal
-        self.state = e.ButtonState.normal
+        self.state = enums.ButtonState.normal
     end
 end
 
 function Button:draw()
     -- Infill
     love.graphics.setColor(self.style.color.current.fill)
-    love.graphics.rectangle(e.DrawMode.fill, self.mask.left, self.mask.top, self.mask.width, self.mask.height, self.style.borderRadius, self.style.borderRadius)
+    love.graphics.rectangle(enums.DrawMode.fill, self.mask.left, self.mask.top, self.mask.width, self.mask.height, self.style.borderRadius, self.style.borderRadius)
     -- Border
     love.graphics.setColor(self.style.color.current.border)
     love.graphics.setLineWidth(self.style.borderWidth)
-    love.graphics.rectangle(e.DrawMode.line, self.mask.left, self.mask.top, self.mask.width, self.mask.height, self.style.borderRadius, self.style.borderRadius)
+    love.graphics.rectangle(enums.DrawMode.line, self.mask.left, self.mask.top, self.mask.width, self.mask.height, self.style.borderRadius, self.style.borderRadius)
     -- Text
     love.graphics.setColor(self.style.color.current.text)
     love.graphics.draw(self.text, self.mask.centre.x - (self.text:getWidth()/2), self.mask.centre.y - (self.text:getHeight()/2))
